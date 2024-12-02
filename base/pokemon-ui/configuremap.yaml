@@ -6,6 +6,6 @@ metadata:
   name: pokemon-cm
 data:
   #API_URL: "http://google.fr"
-  POKEDEX_END_NUMBER : "0"
-  POKEDEX_START_NUMBER : "1"
+  POKEDEX_END_NUMBER : "47"
+  POKEDEX_START_NUMBER : "35"
   POKEDEX_NAME : "dracaufeu"
