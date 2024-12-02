@@ -1,6 +1,6 @@
 #fichier que je vais pouvoir monter dans mon pod
 # cest comme les volumes
-apiVersion: v2
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: pokemon-cm2
