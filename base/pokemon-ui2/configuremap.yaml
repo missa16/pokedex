@@ -3,7 +3,7 @@
 apiVersion: v2
 kind: ConfigMap
 metadata:
-  name: pokemon-cm
+  name: pokemon-cm2
 data:
   #API_URL: "http://google.fr"
   POKEDEX_END_NUMBER : "10"
