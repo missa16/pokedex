@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pokemon-ui
+spec:
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: pokemon-ui
+  template:
+    metadata:
+      labels:
+        app: pokemon-ui
+    spec:
+      containers:
+      - image: docker.io/library/pokeapi:0.1
+        name: pokemon-ui
+        ports:
+        - containerPort: 3000
+        env: #mettre ne place une variable denv
+          - name : POKEDEX_END_NUMBER
+            valueFrom : 
+              configMapKeyRef:
+                key: POKEDEX_END_NUMBER
+                name : pokemon-cm
+
+          - name : POKEDEX_START_NUMBER
+            valueFrom : 
+              configMapKeyRef:
+                key: POKEDEX_START_NUMBER
+                name : pokemon-cm
+
+          - name : POKEDEX_NAME
+            valueFrom : 
+              configMapKeyRef:
+                key: POKEDEX_NAME
+                name : pokemon-cm

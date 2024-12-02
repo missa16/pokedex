@@ -5,3 +5,4 @@ namespace: pokemon-kustomize
 
 resources:
 - pokemon-ui/
+- pokemon-ui2/
