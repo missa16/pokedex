@@ -15,24 +15,22 @@ spec:
     spec:
       containers:
       - image: docker.io/library/pokeapi:0.1
-        name: pokemon-ui
+        name: pokeapi
         ports:
         - containerPort: 3000
-        env: #mettre ne place une variable denv
-          - name : POKEDEX_END_NUMBER
-            valueFrom : 
+        env:
+          - name: POKEDEX_NAME
+            valueFrom:
               configMapKeyRef:
-                key: POKEDEX_END_NUMBER
-                name : pokemon-cm
-
-          - name : POKEDEX_START_NUMBER
-            valueFrom : 
-              configMapKeyRef:
-                key: POKEDEX_START_NUMBER
-                name : pokemon-cm
-
-          - name : POKEDEX_NAME
-            valueFrom : 
-              configMapKeyRef:
+                name: pokemon-cm
                 key: POKEDEX_NAME
-                name : pokemon-cm
+          - name: POKEDEX_START_NUMBER
+            valueFrom:
+              configMapKeyRef:
+                name: pokemon-cm
+                key: POKEDEX_START_NUMBER
+          - name: POKEDEX_END_NUMBER
+            valueFrom:
+              configMapKeyRef:
+                name: pokemon-cm
+                key: POKEDEX_END_NUMBER
