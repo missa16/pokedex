@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-cm
+data:
+  POKEDEX_NAME: {{ .Values.envVariables.POKEDEX_NAME }}
+  POKEDEX_START_NUMBER: {{ .Values.envVariables.POKEDEX_START_NUMBER }}
+  POKEDEX_END_NUMBER: {{ .Values.envVariables.POKEDEX_END_NUMBER }}

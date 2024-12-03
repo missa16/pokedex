@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pokedex-kanto-svc
+spec:
+  ports:
+  - port: 3000
+    targetPort: http
+  selector:
+    app: pokedex-kanto

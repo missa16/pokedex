@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pokedex-kanto
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: pokedex-kanto
+  template:
+    metadata:
+      labels:
+        app: pokedex-kanto
+    spec:
+      containers:
+      - image: ghcr.io/froissant/pokedex:main
+        name: pokedex-kanto
+        ports:
+        - containerPort: 3000
+          name: http
+        envFrom:
+          - configMapRef:
+              name: pokedex-kanto-cm
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pokedex-johto
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: pokedex-johto
+  template:
+    metadata:
+      labels:
+        app: pokedex-johto
+    spec:
+      containers:
+      - image: ghcr.io/froissant/pokedex:main
+        name: pokedex-johto
+        ports:
+        - containerPort: 3000
+          name: http
+        envFrom:
+          - configMapRef:
+              name: pokedex-johto-cm
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
