@@ -7,5 +7,5 @@ resources:
 - service.yaml
 images:
 - name: ghcr.io/froissant/pokedex:main
-  newName: ghcr.io/froissant/pokedex
-  newTag: sha-7b0b2ef
+  newName: ghcr.io/missa16/pokedex
+  newTag: sha-a202788
