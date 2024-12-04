@@ -15,6 +15,7 @@ spec:
     spec:
       containers:
       - image: ghcr.io/froissant/pokedex:main
+        imagePullPolicy: Always
         name: pokedex-johto
         ports:
         - containerPort: 3000
@@ -24,9 +25,9 @@ spec:
               name: pokedex-johto-cm
         livenessProbe:
           httpGet:
-            path: /
+            path: /health
             port: http
         readinessProbe:
           httpGet:
-            path: /
+            path: /health
             port: http
