@@ -5,7 +5,7 @@ import pokemons from './routes/pokemons.js';
 
 const HEALTHCHECK_ENDPOINT = process.env.HEALTHCHECK_ENDPOINT || "/health"; //toujours bien d'avoir des valeurs par defaut
 const POKEDEX_NAME = process.env.POKEDEX_NAME;
-if(typeof POKEDEX_NAME === undefined){
+if(typeof POKEDEX_NAME === "undefined"){
     throw new Error('POKEDEX_NAME must be set');
 }
 
