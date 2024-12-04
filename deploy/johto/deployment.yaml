@@ -24,9 +24,9 @@ spec:
               name: pokedex-johto-cm
         livenessProbe:
           httpGet:
-            path: /
+            path: /health
             port: http
         readinessProbe:
           httpGet:
-            path: /
+            path: /health
             port: http
