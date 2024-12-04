@@ -3,7 +3,7 @@ name: Create and publish a Docker image
 
 # Configures this workflow to run every time a change is pushed to the branch called `release`.
 on:
-  workflow_dispatch:
+  workflow_dispatch:  #on peut egalement le faire à la main
   push:
     branches: ['main']
     paths:
@@ -19,8 +19,8 @@ jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
     # Sets the permissions granted to the `GITHUB_TOKEN` for the actions in this job.
-    permissions:
-      contents: write
+    permissions: ## dont il va avoir besoin pour faire les actions
+      contents: write #reecrire dans le repo a la fin des actions
       packages: write
       attestations: write
       id-token: write
@@ -42,7 +42,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=sha
+            type=sha ## tag que je donne a mon image
 
       # This step uses the `docker/build-push-action` action to build the image, based on your repository's `Dockerfile`. If the build succeeds, it pushes the image to GitHub Packages.
       # It uses the `context` parameter to define the build's context as the set of files located in the specified path. For more information, see "[Usage](https://github.com/docker/build-push-action#usage)" in the README of the `docker/build-push-action` repository.
