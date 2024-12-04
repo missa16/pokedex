@@ -5,3 +5,7 @@ resources:
 - configmap.yaml
 - deployment.yaml
 - service.yaml
+images:
+- name: ghcr.io/froissant/pokedex:main
+  newName: ghcr.io/froissant/pokedex
+  newTag: sha-7b0b2ef
